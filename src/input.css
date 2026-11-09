@@ -169,55 +169,6 @@ button:focus-visible {
    LOCAL FONTS
 ===================================== */
 
-@font-face {
-    font-family: "Cormorant Garamond";
-    src: url("../fonts/CormorantGaramond-Regular.ttf")
-         format("truetype");
-    font-weight: 400;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "Cormorant Garamond";
-    src: url("../fonts/CormorantGaramond-Medium.ttf")
-         format("truetype");
-    font-weight: 500;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "Cormorant Garamond";
-    src: url("../fonts/CormorantGaramond-SemiBold.ttf")
-         format("truetype");
-    font-weight: 600;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "Manrope";
-    src: url("../fonts/Manrope-Regular.ttf")
-         format("truetype");
-    font-weight: 400;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "Manrope";
-    src: url("../fonts/Manrope-Medium.ttf")
-         format("truetype");
-    font-weight: 500;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "Manrope";
-    src: url("../fonts/Manrope-SemiBold.ttf")
-         format("truetype");
-    font-weight: 600;
-    font-display: swap;
-}
-
-
 @source "../index.html";
 @source "../js";
 
@@ -228,8 +179,8 @@ button:focus-visible {
     --color-brand-beige: #D9CBB0;
     --color-brand-charcoal: #292B26;
 
-    --font-heading: "Cormorant Garamond", serif;
-    --font-body: "Manrope", sans-serif;
+    --font-heading: Georgia, "Times New Roman", serif;
+    --font-body: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
 /* =====================================
@@ -244,7 +195,7 @@ html {
 body {
     background-color: #F8F5EA;
     color: #292B26;
-    font-family: Arial, sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
 ::selection {
@@ -266,13 +217,89 @@ button {
 }
 
 
+
+/* =====================================
+   BACK TO TOP BUTTON
+===================================== */
+
+.back-to-top {
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+    z-index: 999;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 48px;
+    height: 48px;
+
+    background: #203729;
+    color: #F8F5EA;
+
+    border: 1px solid rgba(248, 245, 234, 0.25);
+
+    cursor: pointer;
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transform: translateY(15px);
+
+    transition:
+        opacity 0.3s ease,
+        visibility 0.3s ease,
+        transform 0.3s ease,
+        background 0.3s ease;
+}
+
+.back-to-top.is-visible {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+.back-to-top:hover {
+    background: #526451;
+    transform: translateY(-4px);
+}
+
+.back-to-top svg {
+    display: block;
+}
+
+@media (max-width: 600px) {
+
+    .back-to-top {
+        right: 18px;
+        bottom: 20px;
+        width: 44px;
+        height: 44px;
+    }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .back-to-top {
+        transition: none;
+    }
+
+}
+
+
 /* =====================================
    PREMIUM NAVIGATION
 ===================================== */
 
 .site-header {
-    position: relative;
-    background: #fffbf0;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: #F8F5EA;
     border-bottom: 1px solid rgba(32, 55, 41, 0.10);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
@@ -288,7 +315,7 @@ button {
 /* NAV CONTAINER */
 
 .nav-container {
-    min-height: 100px;
+    min-height: 85px;
     max-width: 1440px;
     padding: 0 48px;
     margin: 0 auto;
@@ -333,7 +360,7 @@ button {
 
     color: #292B26;
     font-family: "Manrope", sans-serif;
-    font-size: 11px;
+    font-size: 13px;
     font-weight: 600;
     letter-spacing: 0.07em;
 
@@ -379,7 +406,7 @@ button {
 
     color: #F8F5EA;
     font-family: "Manrope", sans-serif;
-    font-size: 10px;
+    font-size: 11px;
     font-weight: 600;
     letter-spacing: 0.12em;
 
@@ -564,8 +591,8 @@ button {
     }
 
     .brand-logo img {
-        width: 88px;
-        height: 70px;
+        width: 188px;
+        height: 80px;
     }
 
     .mobile-menu-inner {
@@ -574,56 +601,106 @@ button {
     }
 }
 
-
 /* =====================================
    BEAN YARD CAFÉ — HERO SECTION
 ===================================== */
 
 .hero-section {
     position: relative;
+    display: flex;
+    align-items: center;
+
+    width: 100%;
+
+    /* screen height minus top bar + navbar.
+       If the hero is still cut at the bottom, make 200px bigger.
+       If there is empty space, make it smaller. */
+    height: calc(100svh - 200px);
+    min-height: 420px;
+
     overflow: hidden;
-    background: #F8F5EA;
+    isolation: isolate;
+
+    background: #203729;
+}
+
+/* BACKGROUND IMAGE */
+
+.hero-background-image {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+
+    display: block;
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center 52%;
+}
+
+/* DARK IMAGE OVERLAY */
+
+.hero-image-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(13, 35, 23, 0.88) 0%,
+            rgba(13, 35, 23, 0.76) 40%,
+            rgba(13, 35, 23, 0.35) 75%,
+            rgba(13, 35, 23, 0.20) 100%
+        ),
+        linear-gradient(
+            0deg,
+            rgba(13, 35, 23, 0.30),
+            transparent 45%
+        );
 }
 
 /* MAIN CONTAINER */
+
 .hero-container {
+    position: relative;
+
     width: 100%;
     max-width: 1440px;
 
     margin: 0 auto;
-    padding: 30px 7% 40px;
+    padding: 25px 7%;
 
-    display: grid;
-    grid-template-columns: 0.95fr 1.05fr;
+    display: flex;
     align-items: center;
-    gap: 55px;
 }
 
-/* LEFT CONTENT */
+/* HERO CONTENT */
 
 .hero-content {
     position: relative;
     z-index: 2;
-    padding: 20px 0;
+
+    width: 100%;
+    max-width: 750px;
 }
+
+/* EYEBROW */
 
 .hero-eyebrow {
     display: flex;
     align-items: center;
-    gap: 13px;
+    gap: 12px;
 
-    margin-bottom: 18px;
+    margin-bottom: 14px;
 
-    color: #526451;
-    font-size: 10px;
+    color: #D9C09A;
+
+    font-family: "Manrope", sans-serif;
+    font-size: 11px;
     font-weight: 600;
-    letter-spacing: 0.2em;
-}
-
-.eyebrow-line {
-    width: 35px;
-    height: 1px;
-    background: #526451;
+    letter-spacing: 0.19em;
 }
 
 /* MAIN HEADING */
@@ -631,13 +708,15 @@ button {
 .hero-title {
     margin: 0;
 
-    color: #203729;
-    font-family: "Cormorant Garamond", serif;
+    color: #FFFFFF;
 
-    font-size: clamp(54px, 5.5vw, 76px);
+    font-family: "Cormorant Garamond", serif;
+    /* size follows screen width AND height, so it never gets too tall */
+    font-size: clamp(38px, min(5.4vw, 9vh), 76px);
     font-weight: 500;
-    line-height: 0.95;
-    letter-spacing: -0.045em;
+
+    line-height: 0.98;
+    letter-spacing: -0.035em;
 }
 
 .hero-title span,
@@ -646,29 +725,32 @@ button {
 }
 
 .hero-title span {
-    font-weight: 600;
+    font-weight: 500;
 }
 
 .hero-title em {
-    margin-top: 7px;
+    margin-top: 4px;
 
-    color: #89927E;
+    color: #D9CBB0;
+
     font-weight: 400;
-    font-style: italic;
+    font-style: normal;
 }
 
 /* DESCRIPTION */
 
 .hero-description {
-    max-width: 470px;
-    margin-top: 18px;
+    max-width: 620px;
 
-    color: #62675D;
+    margin-top: 16px;
+
+    color: rgba(255, 255, 255, 0.88);
+
     font-family: "Manrope", sans-serif;
-
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 400;
-    line-height: 1.8;
+
+    line-height: 1.7;
 }
 
 /* BUTTONS */
@@ -677,231 +759,108 @@ button {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    gap: 30px;
+    gap: 15px;
 
-    margin-top: 25px;
+    margin-top: 20px;
 }
+
+/* PRIMARY BUTTON */
 
 .hero-primary-btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 25px;
 
-    min-height: 54px;
-    padding: 0 23px;
+    min-height: 48px;
+    padding: 0 25px;
 
-    background: #203729;
-    border: 1px solid #203729;
+    background: #F8F5EA;
+    border: 1px solid #F8F5EA;
 
-    color: #F8F5EA;
-    font-size: 10px;
+    color: #203729;
+
+    font-family: "Manrope", sans-serif;
+    font-size: 12px;
     font-weight: 600;
-    letter-spacing: 0.12em;
 
-    transition: all 0.3s ease;
+    text-decoration: none;
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease,
+        border-color 0.3s ease;
 }
 
 .hero-primary-btn:hover {
     background: transparent;
-    color: #203729;
+    color: #FFFFFF;
+    border-color: #FFFFFF;
 }
 
-.hero-primary-btn span {
-    font-size: 17px;
-    transition: transform 0.3s ease;
-}
-
-.hero-primary-btn:hover span {
-    transform: translate(3px, -3px);
-}
+/* SECONDARY BUTTON */
 
 .hero-secondary-btn {
     display: inline-flex;
     align-items: center;
-    gap: 12px;
+    justify-content: center;
 
-    color: #203729;
-    font-size: 10px;
+    min-height: 48px;
+    padding: 0 25px;
+
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.65);
+
+    color: #FFFFFF;
+
+    font-family: "Manrope", sans-serif;
+    font-size: 12px;
     font-weight: 600;
-    letter-spacing: 0.12em;
 
-    transition: gap 0.3s ease;
+    text-decoration: none;
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease,
+        border-color 0.3s ease;
 }
 
 .hero-secondary-btn:hover {
-    gap: 19px;
-}
-
-/* LOCATION */
-
-.hero-location {
-    display: flex;
-    align-items: center;
-    gap: 13px;
-
-    margin-top: 35px;
-    padding-top: 16px;
-
-    border-top: 1px solid rgba(32, 55, 41, 0.16);
-}
-
-.location-icon {
-    display: flex;
-    color: #526451;
-}
-
-.hero-location div {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-}
-
-.hero-location div span {
-    color: #89927E;
-    font-size: 9px;
-    font-weight: 600;
-    letter-spacing: 0.18em;
-}
-
-.hero-location strong {
-    color: #203729;
-    font-size: 11px;
-    font-weight: 500;
-}
-
-/* RIGHT IMAGE */
-
-.hero-visual {
-    position: relative;
-    min-width: 0;
-    padding: 0 0 25px 20px;
-}
-
-.hero-image-wrapper {
-    position: relative;
-    width: 100%;
-    height: 440px;
-    overflow: hidden;
-    background: #D9CBB0;
-}
-
-.hero-main-image {
-    width: 100%;
-    height: 100%;
-
-    object-fit: cover;
-    object-position: center;
-
-    transition: transform 0.8s ease;
-}
-
-.hero-image-wrapper:hover .hero-main-image {
-    transform: scale(1.035);
-}
-
-.hero-image-overlay {
-    position: absolute;
-    inset: 0;
-
-    background: linear-gradient(
-        to top,
-        rgba(20, 32, 23, 0.55),
-        transparent 35%
-    );
-
-    pointer-events: none;
-}
-
-.hero-image-caption {
-    position: absolute;
-    bottom: 25px;
-    left: 25px;
-    right: 25px;
-
-    display: flex;
-    justify-content: space-between;
-    gap: 10px;
-
-    color: #FFFFFF;
-    font-size: 9px;
-    font-weight: 600;
-    letter-spacing: 0.16em;
-}
-
-/* FLOATING CARD */
-
-.hero-floating-card {
-    position: absolute;
-    left: -15px;
-    bottom: 0;
-
-    display: flex;
-    align-items: center;
-    gap: 14px;
-
-    padding: 17px 22px;
-
-    background: #FFFFFF;
-    box-shadow: 0 12px 40px rgba(32, 55, 41, 0.12);
-}
-
-.floating-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    width: 48px;
-    height: 48px;
-
-    background: #F0EFE5;
+    background: #F8F5EA;
+    border-color: #F8F5EA;
     color: #203729;
 }
 
-.floating-text {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-}
 
-.floating-text span {
-    color: #89927E;
-    font-size: 8px;
-    font-weight: 600;
-    letter-spacing: 0.15em;
-}
-
-.floating-text strong {
-    color: #203729;
-    font-family: "Cormorant Garamond", serif;
-    font-size: 24px;
-    font-weight: 600;
-}
-
-/* BOTTOM STRIP */
+/* =====================================
+   BRAND STRIP
+===================================== */
 
 .hero-bottom-strip {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
+
     gap: 25px;
+    padding: 23px 20px;
 
-    padding: 16px 20px;
+    background: #203729;
 
-    border-top: 1px solid rgba(32, 55, 41, 0.12);
-    border-bottom: 1px solid rgba(32, 55, 41, 0.12);
+    color: #F8F5EA;
 
-    color: #526451;
-    font-size: 9px;
+    font-family: "Manrope", sans-serif;
+    font-size: 10px;
     font-weight: 600;
     letter-spacing: 0.19em;
 }
 
 .strip-dot {
-    color: #89927E;
-    font-size: 11px;
+    color: #D9CBB0;
+    font-size: 12px;
+    margin-left: 25px;  /* Space before the dot */
+    margin-right: 25px; /* Space after the dot */
 }
+
 
 /* =====================================
    TABLET RESPONSIVENESS
@@ -909,24 +868,29 @@ button {
 
 @media (max-width: 1000px) {
 
+    .hero-section {
+        min-height: 460px;
+    }
+
     .hero-container {
-        gap: 40px;
-        padding: 65px 5%;
+        padding: 30px 5%;
+    }
+
+    .hero-content {
+        max-width: 680px;
     }
 
     .hero-title {
-        font-size: clamp(54px, 7vw, 72px);
+        font-size: clamp(40px, min(7vw, 9vh), 68px);
     }
 
-    .hero-image-wrapper {
-        height: 470px;
-    }
-
-    .hero-location {
-        margin-top: 40px;
+    .hero-description {
+        max-width: 600px;
+        font-size: 14px;
     }
 
 }
+
 
 /* =====================================
    MOBILE RESPONSIVENESS
@@ -934,89 +898,77 @@ button {
 
 @media (max-width: 700px) {
 
-    .hero-container {
-        grid-template-columns: 1fr;
-        gap: 45px;
-
-        padding: 65px 23px 55px;
+    .hero-section {
+        height: auto;
+        min-height: 0;          /* removes the extra empty space */
     }
 
-    .hero-content {
-        padding: 0;
+    .hero-container {
+        padding: 28px 20px 32px;
     }
 
     .hero-eyebrow {
-        margin-bottom: 22px;
-        font-size: 9px;
+        margin-bottom: 12px;
     }
 
     .hero-title {
-        font-size: clamp(55px, 12vw, 76px);
+        font-size: clamp(36px, 9.5vw, 50px);
+        line-height: 1;
     }
 
     .hero-description {
-        margin-top: 22px;
+        margin-top: 14px;
         font-size: 12px;
-        line-height: 2;
+        line-height: 1.7;
     }
 
     .hero-actions {
-        gap: 23px;
-        margin-top: 28px;
+        margin-top: 18px;
+        gap: 10px;
     }
 
-    .hero-location {
-        margin-top: 38px;
+    .hero-primary-btn,
+    .hero-secondary-btn {
+        min-height: 42px;
+        padding: 0 14px;
     }
-
-    .hero-visual {
-        padding-left: 0;
-        padding-bottom: 25px;
-        margin: 0 5px;
-    }
-
-    .hero-image-wrapper {
-        height: 430px;
-    }
-
-    .hero-floating-card {
-        left: -10px;
-    }
-
-    .hero-bottom-strip {
-        gap: 13px;
-        padding: 20px 12px;
-        font-size: 8px;
-        letter-spacing: 0.12em;
-    }
-
 }
+
+/* =====================================
+   SMALL MOBILE RESPONSIVENESS
+===================================== */
 
 @media (max-width: 380px) {
 
+    .hero-section {
+    height: auto;
+    min-height: 260px;
+}
     .hero-container {
-        padding-left: 17px;
-        padding-right: 17px;
+        padding: 45px 19px;
     }
 
     .hero-title {
-        font-size: 52px;
+        font-size: 42px;
     }
 
-    .hero-image-wrapper {
-        height: 350px;
+    .hero-description {
+        font-size: 11px;
     }
 
     .hero-actions {
-        gap: 17px;
+        gap: 10px;
     }
 
-    .hero-primary-btn {
-        padding: 0 15px;
-        gap: 13px;
+    .hero-primary-btn,
+    .hero-secondary-btn {
+        min-height: 44px;
+        padding: 0 13px;
+        font-size: 9px;
     }
 
 }
+
 
 /* =====================================
    REDUCED MOTION
@@ -1024,14 +976,12 @@ button {
 
 @media (prefers-reduced-motion: reduce) {
 
-    .hero-main-image,
     .hero-primary-btn,
     .hero-secondary-btn {
         transition: none;
     }
 
 }
-
 /* =====================================
    ABOUT BEAN YARD CAFÉ
 ===================================== */
@@ -2797,12 +2747,13 @@ button {
 .footer-logo {
     display: inline-flex;
     align-items: center;
-    gap: 13px;
+    justify-content: flex-start;
+    
 }
-
 .footer-logo img {
-    width: 50px;
-    height: 50px;
+    display: block;
+    width: 250px;
+    height: 120px;
     object-fit: contain;
 }
 
@@ -2812,28 +2763,14 @@ button {
     gap: 3px;
 }
 
-.footer-brand-name strong {
-    color: #F8F5EA;
-    font-family: "Cormorant Garamond", serif;
-    font-size: 26px;
-    font-weight: 600;
-    letter-spacing: 0.03em;
-    line-height: 1;
-}
-
-.footer-brand-name span {
-    color: #B7C4AE;
-    font-size: 8px;
-    font-weight: 600;
-    letter-spacing: 0.15em;
-}
 
 .footer-description {
-    margin-top: 18px;
+    margin-top: 0px;
     color: #C2C9BD;
     font-size: 10px;
     line-height: 1.9;
 }
+
 
 
 /* =====================================
@@ -3045,6 +2982,11 @@ button {
         max-width: 100%;
     }
 
+    .footer-logo img {
+        width: 200px;
+        height: 80px;
+    }
+
     .footer-last-column {
         grid-column: 1 / 3;
     }
@@ -3066,7 +3008,6 @@ button {
     }
 
 }
-
 /* =====================================
    ACCESSIBILITY & GLOBAL RESPONSIVENESS
 ===================================== */
@@ -3207,5 +3148,34 @@ body {
     .hero-image,
     .hero-visual {
         animation: none !important;
+    }
+}
+
+
+/* =====================================
+   PERFORMANCE + PROFESSIONAL POLISH
+===================================== */
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+}
+
+img {
+    height: auto;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .menu-card img,
+    .gallery-item img {
+        transition: transform 450ms ease;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .menu-card img,
+    .gallery-item img {
+        transition: none !important;
     }
 }

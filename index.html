@@ -12,16 +12,18 @@
     <meta name="robots" content="index, follow">
     <meta name="author" content="BEAN YARD CAFÉ">
     <meta name="theme-color" content="#F8F5EA">
+    <meta http-equiv="content-language" content="en-GB">
 
     <meta property="og:type" content="website">
     <meta property="og:title" content="BEAN YARD CAFÉ | Maidstone">
     <meta property="og:description"
         content="Coffee, pastries and toasties in the heart of Maidstone.">
-    <meta property="og:image" content="assets/logo/bean-yard-logo.jpg">
+    <meta property="og:image" content="assets/logo/bean-yard-logo.webp">
 
-    <link rel="icon" type="image/jpeg"
-        href="assets/logo/bean-yard-logo1.jpg">
+    <link rel="icon" type="image/png"
+        href="assets/logo/fav_icon.png">
 
+    <link rel="preload" as="image" href="assets/images/hero-coffee.webp" fetchpriority="high">
     <link rel="stylesheet" href="assets/css/output.css">
 
     <script src="js/script.js" defer></script>
@@ -32,7 +34,7 @@
         "@context": "https://schema.org",
         "@type": "CafeOrCoffeeShop",
         "name": "BEAN YARD CAFÉ",
-        "image": "assets/logo/bean-yard-logo.jpg",
+        "image": "assets/logo/bean-yard-logo.webp",
         "address": {
             "@type": "PostalAddress",
             "streetAddress": "41 Union Street",
@@ -51,6 +53,32 @@
 </head>
 
 <body class="bg-brand-cream text-brand-charcoal antialiased">
+    
+<!-- BACK TO TOP BUTTON -->
+
+<button
+    id="back-to-top"
+    class="back-to-top"
+    type="button"
+    aria-label="Back to top"
+    title="Back to top"
+>
+    <svg
+        viewBox="0 0 24 24"
+        width="20"
+        height="20"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.8"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        aria-hidden="true"
+    >
+        <path d="M12 19V5"/>
+        <path d="M5 12l7-7 7 7"/>
+    </svg>
+</button>
+
 
     <!-- ANNOUNCEMENT BAR -->
     <div class="bg-brand-green px-4 py-2 text-center text-xs
@@ -71,8 +99,8 @@
         <a href="#home" class="brand-logo"
            aria-label="BEAN YARD CAFÉ home">
 
-            <img
-                src="assets/logo/bean-yard-logo.png"
+            <img loading="eager" decoding="async"
+                src="assets/logo/bean-yard-logo-transparent.png"
                 alt="BEAN YARD CAFÉ"
                 width="70"
                 height="70"
@@ -170,118 +198,57 @@
 
 </header>
      
+
 <!-- =====================================
      BEAN YARD CAFÉ — HERO SECTION
 ===================================== -->
 
 <section id="home" class="hero-section">
 
+    <!-- BACKGROUND IMAGE -->
+    <img decoding="async"
+        src="assets/images/hero-coffee.jpg"
+        alt="Freshly prepared artisan coffee at BEAN YARD CAFÉ in Maidstone"
+        class="hero-background-image"
+        width="1600"
+        height="900"
+        fetchpriority="high"
+    >
+
+    <!-- DARK OVERLAY -->
+    <div class="hero-image-overlay"></div>
+
+    <!-- HERO CONTENT -->
     <div class="hero-container">
 
-        <!-- LEFT CONTENT -->
         <div class="hero-content">
 
             <div class="hero-eyebrow">
-                <span class="eyebrow-line"></span>
-                <span>YOUR NEIGHBOURHOOD COFFEE SPOT</span>
+                <span>UNION STREET · MAIDSTONE</span>
             </div>
 
             <h1 class="hero-title">
-                Good coffee.
-                <span>Better moments.</span>
-                <em>Every single day.</em>
+                Good Coffee. Fresh
+                <span>Pastries. Made for</span>
+                <em>Your Day.</em>
             </h1>
 
             <p class="hero-description">
-                Slow down, savour the moment, and enjoy
-                something special. From carefully crafted
-                coffee to freshly prepared pastries and
-                toasties, there's always a reason to visit.
+                Welcome to BEAN YARD CAFÉ on Union Street,
+                Maidstone. We brew artisanal specialty coffee,
+                prepare fresh gourmet toasties, and bake daily
+                pastries to elevate your routine.
             </p>
 
             <div class="hero-actions">
 
                 <a href="#menu" class="hero-primary-btn">
                     EXPLORE OUR MENU
-                    <span aria-hidden="true">↗</span>
                 </a>
 
                 <a href="#location" class="hero-secondary-btn">
-                    FIND OUR CAFÉ
-                    <span aria-hidden="true">→</span>
+                    GET DIRECTIONS
                 </a>
-
-            </div>
-
-            <!-- LOCATION DETAIL -->
-            <div class="hero-location">
-
-                <span class="location-icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24"
-                         fill="none"
-                         stroke="currentColor"
-                         stroke-width="1.5"
-                         width="19"
-                         height="19">
-                        <path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/>
-                        <circle cx="12" cy="10" r="2.5"/>
-                    </svg>
-                </span>
-
-                <div>
-                    <span>FIND US ON</span>
-                    <strong>41 Union Street, Maidstone · ME14 1ED</strong>
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <!-- RIGHT IMAGE -->
-        <div class="hero-visual">
-
-            <div class="hero-image-wrapper">
-
-                <img
-                    src="assets/images/hero-coffee.jpg"
-                    alt="Freshly prepared artisan coffee at BEAN YARD CAFÉ in Maidstone"
-                    class="hero-main-image"
-                    width="900"
-                    height="1100"
-                    fetchpriority="high"
-                >
-
-                <div class="hero-image-overlay"></div>
-
-                <div class="hero-image-caption">
-                    <span>CRAFTED WITH CARE</span>
-                    <span>MADE TO BE SAVOURED</span>
-                </div>
-
-            </div>
-
-
-            <!-- FLOATING BRAND DETAIL -->
-            <div class="hero-floating-card">
-
-                <div class="floating-icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24"
-                         fill="none"
-                         stroke="currentColor"
-                         stroke-width="1.4"
-                         width="26"
-                         height="26">
-                        <path d="M7 10h10v5a5 5 0 0 1-10 0v-5Z"/>
-                        <path d="M17 11h2a2 2 0 0 1 0 4h-2"/>
-                        <path d="M9 6c-1-1 1-2 0-3M13 6c-1-1 1-2 0-3"/>
-                    </svg>
-                </div>
-
-                <div class="floating-text">
-                    <span>A LITTLE MOMENT</span>
-                    <strong>Of Comfort.</strong>
-                </div>
 
             </div>
 
@@ -289,27 +256,28 @@
 
     </div>
 
-  <!-- BRAND STRIP -->
-        <section class="bg-brand-green px-6 py-9">
-
-            <div class="mx-auto flex max-w-6xl flex-wrap
-                        items-center justify-center gap-x-12
-                        gap-y-5 text-center text-xs
-                        tracking-[0.25em] text-brand-cream">
-
-                <span>QUALITY COFFEE</span>
-                <span class="hidden text-brand-beige md:block">✦</span>
-                <span>FRESH PASTRIES</span>
-                <span class="hidden text-brand-beige md:block">✦</span>
-                <span>DELICIOUS TOASTIES</span>
-                <span class="hidden text-brand-beige md:block">✦</span>
-                <span>GOOD MOMENTS</span>
-
-            </div>
-
-        </section>
-
 </section>
+
+
+<!-- =====================================
+     BRAND STRIP
+===================================== -->
+
+<section class="hero-bottom-strip">
+<marquee class="brand-strip" behavior="scroll" direction="left" scrollamount="6">
+    <span>QUALITY COFFEE</span>
+    <span class="strip-dot">✦</span>
+
+    <span>FRESH PASTRIES</span>
+    <span class="strip-dot">✦</span>
+
+    <span>DELICIOUS TOASTIES</span>
+    <span class="strip-dot">✦</span>
+
+    <span>GOOD MOMENTS</span>
+</marquee>
+</section>
+
 
 
       
@@ -328,8 +296,8 @@
         <div class="about-visual">
 
             <div class="about-image-main">
-                <img
-                    src="assets/images/cafe-interior.jpg"
+                <img decoding="async"
+                    src="assets/images/cafe-interior.webp"
                     alt="Warm and welcoming interior of BEAN YARD CAFÉ in Maidstone"
                     width="800"
                     height="1000"
@@ -338,8 +306,8 @@
             </div>
 
             <div class="about-image-secondary">
-                <img
-                    src="assets/images/coffee-cup.jpg"
+                <img decoding="async"
+                    src="assets/images/coffee-cup.webp"
                     alt="Freshly prepared cup of coffee at BEAN YARD CAFÉ"
                     width="500"
                     height="600"
@@ -528,8 +496,8 @@
             <article class="menu-card">
 
                 <div class="menu-card-image">
-                    <img
-                        src="assets/images/espresso.jpg"
+                    <img decoding="async"
+                        src="assets/images/espresso.webp"
                         alt="Rich freshly prepared espresso coffee"
                         width="600"
                         height="450"
@@ -554,8 +522,8 @@
             <article class="menu-card">
 
                 <div class="menu-card-image">
-                    <img
-                        src="assets/images/cappuccino.jpg"
+                    <img decoding="async"
+                        src="assets/images/cappuccino.webp"
                         alt="Creamy cappuccino with beautiful milk foam"
                         width="600"
                         height="450"
@@ -580,8 +548,8 @@
             <article class="menu-card">
 
                 <div class="menu-card-image">
-                    <img
-                        src="assets/images/latte.jpg"
+                    <img decoding="async"
+                        src="assets/images/latte.webp"
                         alt="Smooth latte coffee with delicate latte art"
                         width="600"
                         height="450"
@@ -606,8 +574,8 @@
             <article class="menu-card">
 
                 <div class="menu-card-image">
-                    <img
-                        src="assets/images/americano.jpg"
+                    <img decoding="async"
+                        src="assets/images/americano.webp"
                         alt="Freshly brewed Americano black coffee"
                         width="600"
                         height="450"
@@ -632,8 +600,8 @@
             <article class="menu-card">
 
                 <div class="menu-card-image">
-                    <img
-                        src="assets/images/cold-coffee.jpg"
+                    <img decoding="async"
+                        src="assets/images/cold-coffee.webp"
                         alt="Chilled iced coffee served in a glass"
                         width="600"
                         height="450"
@@ -658,8 +626,8 @@
             <article class="menu-card">
 
                 <div class="menu-card-image">
-                    <img
-                        src="assets/images/tea.jpg"
+                    <img decoding="async"
+                        src="assets/images/tea.webp"
                         alt="Freshly served cup of hot tea"
                         width="600"
                         height="450"
@@ -704,8 +672,8 @@
             <article class="menu-card">
 
                 <div class="menu-card-image">
-                    <img
-                        src="assets/images/pastries.jpg"
+                    <img decoding="async"
+                        src="assets/images/pastries.webp"
                         alt="Freshly baked pastries displayed at a coffee shop"
                         width="600"
                         height="450"
@@ -730,8 +698,8 @@
             <article class="menu-card">
 
                 <div class="menu-card-image">
-                    <img
-                        src="assets/images/sandwiches.jpg"
+                    <img decoding="async"
+                        src="assets/images/sandwiches.webp"
                         alt="Freshly prepared sandwich served at BEAN YARD CAFÉ"
                         width="600"
                         height="450"
@@ -820,8 +788,8 @@
             <!-- IMAGE 01: LARGE -->
             <figure class="gallery-item gallery-item-large">
 
-                <img
-                    src="assets/images/cafe-interior.jpg"
+                <img decoding="async"
+                    src="assets/images/cafe-interior.webp"
                     alt="Welcoming coffee shop interior with warm natural lighting"
                     width="900"
                     height="1100"
@@ -839,8 +807,8 @@
             <!-- IMAGE 02 -->
             <figure class="gallery-item gallery-item-top">
 
-                <img
-                    src="assets/images/coffee-cup.jpg"
+                <img decoding="async"
+                    src="assets/images/coffee-cup.webp"
                     alt="Freshly prepared cappuccino with delicate latte art"
                     width="700"
                     height="500"
@@ -858,8 +826,8 @@
             <!-- IMAGE 03 -->
             <figure class="gallery-item gallery-item-middle">
 
-                <img
-                    src="assets/images/pastries.jpg"
+                <img decoding="async"
+                    src="assets/images/pastries.webp"
                     alt="Golden freshly baked croissant and pastries"
                     width="700"
                     height="500"
@@ -877,8 +845,8 @@
             <!-- IMAGE 04 -->
             <figure class="gallery-item gallery-item-bottom">
 
-                <img
-                    src="assets/images/cold-coffee.jpg"
+                <img decoding="async"
+                    src="assets/images/cold-coffee.webp"
                     alt="Refreshing iced coffee served in a glass"
                     width="700"
                     height="500"
@@ -896,8 +864,8 @@
             <!-- IMAGE 05 -->
             <figure class="gallery-item gallery-item-food">
 
-                <img
-                    src="assets/images/sandwiches.jpg"
+                <img decoding="async"
+                    src="assets/images/sandwiches.webp"
                     alt="Freshly prepared sandwich served with a cafe-style presentation"
                     width="700"
                     height="500"
@@ -915,8 +883,8 @@
             <!-- IMAGE 06 -->
             <figure class="gallery-item gallery-item-detail">
 
-                <img
-                    src="assets/images/coffee-beans.jpg"
+                <img decoding="async"
+                    src="assets/images/coffee-beans.webp"
                     alt="Coffee beans prepared for a freshly brewed coffee"
                     width="700"
                     height="500"
@@ -1143,22 +1111,18 @@
         <div class="footer-main">
 
             <!-- BRAND COLUMN -->
+            
             <div class="footer-brand">
 
-                <a href="#home" class="footer-logo">
+                <a href="#home" class="footer-logo" aria-label="BEAN YARD CAFÉ home">
 
-                    <img
-                        src="assets/logo/bean-yard-logo1.jpg"
-                        alt="BEAN YARD CAFÉ logo"
-                        width="65"
-                        height="65"
+                    <img decoding="async"
+                        src="assets/logo/bean-yard-logo-footer-transparent.png"
+                        alt="BEAN YARD CAFÉ"
+                        width="100"
+                        height="80"
                         loading="lazy"
                     >
-
-                    <div class="footer-brand-name">
-                        <strong>BEAN YARD</strong>
-                        <span>CAFÉ 
-                    </div>
 
                 </a>
 
@@ -1169,8 +1133,8 @@
                     in the heart of Maidstone.
                 </p>
 
-
             </div>
+
 
 
             <!-- QUICK LINKS -->
@@ -1208,9 +1172,9 @@
            target="_blank"
            rel="noopener noreferrer">
 
-            <img src="./assets/images/instagram.png"
+            <img loading="lazy" decoding="async" src="./assets/images/Instagram.webp"
                  alt=""
-                 class="social-icon">
+                 class="social-icon" width="32" height="32">
 
         </a>
 
@@ -1219,9 +1183,9 @@
            target="_blank"
            rel="noopener noreferrer">
 
-            <img src="./assets/images/facebook.png"
+            <img loading="lazy" decoding="async" src="./assets/images/facebook.webp"
                  alt=""
-                 class="social-icon">
+                 class="social-icon" width="32" height="32">
 
         </a>
 

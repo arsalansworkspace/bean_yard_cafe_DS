@@ -1,6 +1,38 @@
 
 document.addEventListener("DOMContentLoaded", () => {
 
+    
+// =====================================
+// BACK TO TOP BUTTON
+// =====================================
+
+const backToTopButton = document.getElementById("back-to-top");
+
+if (backToTopButton) {
+
+    function toggleBackToTop() {
+        if (window.scrollY > 350) {
+            backToTopButton.classList.add("is-visible");
+        } else {
+            backToTopButton.classList.remove("is-visible");
+        }
+    }
+
+    window.addEventListener("scroll", toggleBackToTop, {
+        passive: true
+    });
+
+    backToTopButton.addEventListener("click", () => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    });
+
+    toggleBackToTop();
+}
+
+
     // =====================================
     // ELEMENTS
     // =====================================
@@ -129,3 +161,5 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 });
+
+
