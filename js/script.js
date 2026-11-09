@@ -163,3 +163,7 @@ if (backToTopButton) {
 });
 
 
+console.log(
+    "%cCreated by Muhammad Arsalan\n🔗 Connect: https://www.linkedin.com/in/arsalansworkspace/",
+    "color: #f1f5f2; font-size: 14px; font-weight: bold; padding: 8px 12px; border-radius: 4px;"
+);
