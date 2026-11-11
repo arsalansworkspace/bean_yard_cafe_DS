@@ -299,6 +299,7 @@ button {
     position: sticky;
     top: 0;
     z-index: 50;
+    max-height: 100px;
     background: #F8F5EA;
     border-bottom: 1px solid rgba(32, 55, 41, 0.10);
     backdrop-filter: blur(16px);
@@ -319,7 +320,6 @@ button {
     max-width: 1440px;
     padding: 0 48px;
     margin: 0 auto;
-
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -341,7 +341,7 @@ button {
 .brand-logo img {
     display: block;
     width: 200px;
-    height: 100px;
+    height: 80px;
     object-fit: contain;
 }
 
@@ -363,7 +363,6 @@ button {
     font-size: 13px;
     font-weight: 600;
     letter-spacing: 0.07em;
-
     transition: color 0.3s ease;
 }
 
@@ -543,8 +542,8 @@ button {
     }
 
     .brand-logo img {
-        width: 100px;
-        height: 85px;
+        width: 200px;
+        height: 80px;
     }
 
     .desktop-navigation {
@@ -565,8 +564,8 @@ button {
     }
 
     .brand-logo img {
-        width: 95px;
-        height: 76px;
+        width: 200px;
+        height: 80px;
     }
 
     .desktop-navigation,
@@ -591,7 +590,7 @@ button {
     }
 
     .brand-logo img {
-        width: 188px;
+        width: 200px;
         height: 80px;
     }
 
@@ -2294,15 +2293,695 @@ button {
 
 }
 
+
 /* =====================================
-   BEAN YARD CAFÉ — LOCATION & CONTACT
+   CUSTOMER REVIEW FORM
+===================================== */
+
+.review-form-wrapper {
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    align-items: start;
+    gap: 65px;
+
+    margin: 65px 7% 0;
+    padding: 45px;
+
+    background: #203729;
+}
+
+.review-form-heading {
+    max-width: 380px;
+}
+
+.review-form-heading .reviews-eyebrow {
+    color: #D9CBB0;
+}
+
+.review-form-title {
+    margin: 0;
+
+    color: #F8F5EA;
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(38px, 4vw, 53px);
+    font-weight: 500;
+    line-height: 1;
+}
+
+.review-form-title em {
+    display: block;
+    color: #D9CBB0;
+    font-weight: 400;
+}
+
+.review-form-heading p {
+    margin-top: 18px;
+
+    color: #C2C9BD;
+    font-family: "Manrope", sans-serif;
+    font-size: 11px;
+    line-height: 1.9;
+}
+
+/* FORM */
+
+.customer-review-form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.review-form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.review-form-group label {
+    color: #F8F5EA;
+    font-family: "Manrope", sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+}
+
+.review-form-group input,
+.review-form-group select,
+.review-form-group textarea {
+    width: 100%;
+    padding: 13px 15px;
+
+    background: rgba(248, 245, 234, 0.08);
+    border: 1px solid rgba(248, 245, 234, 0.22);
+    border-radius: 0;
+    outline: none;
+
+    color: #F8F5EA;
+    font-family: "Manrope", sans-serif;
+    font-size: 12px;
+
+    transition: border-color 0.3s ease;
+}
+
+.review-form-group input::placeholder,
+.review-form-group textarea::placeholder {
+    color: #B7C4AE;
+}
+
+.review-form-group select option {
+    color: #203729;
+    background: #F8F5EA;
+}
+
+.review-form-group input:focus,
+.review-form-group select:focus,
+.review-form-group textarea:focus {
+    border-color: #D9CBB0;
+}
+
+.review-form-group textarea {
+    resize: vertical;
+    min-height: 110px;
+}
+
+.review-character-count {
+    color: #B7C4AE;
+    font-family: "Manrope", sans-serif;
+    font-size: 9px;
+}
+
+/* SUBMIT BUTTON */
+
+.review-submit-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+
+    align-self: flex-start;
+    min-height: 50px;
+    padding: 0 20px;
+
+    background: #F8F5EA;
+    border: 1px solid #F8F5EA;
+
+    color: #203729;
+    font-family: "Manrope", sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+}
+
+.review-submit-btn:hover {
+    background: transparent;
+    color: #F8F5EA;
+}
+
+.review-submit-btn span {
+    font-size: 17px;
+}
+
+/* FORM MESSAGE */
+
+.review-form-message {
+    min-height: 18px;
+    color: #D9CBB0;
+    font-family: "Manrope", sans-serif;
+    font-size: 11px;
+    line-height: 1.6;
+}
+
+
+/* =====================================
+   NEW REVIEW CARD
+===================================== */
+
+.review-card.is-new-review {
+    animation: reviewCardEnter 0.5s ease both;
+}
+
+@keyframes reviewCardEnter {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* =====================================
+   REVIEW FORM — TABLET & MOBILE
+===================================== */
+
+@media (max-width: 850px) {
+
+    .review-form-wrapper {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        margin: 50px 5% 0;
+        padding: 35px;
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .review-form-wrapper {
+        gap: 25px;
+        margin: 40px 23px 0;
+        padding: 25px 20px;
+    }
+
+    .review-form-title {
+        font-size: 43px;
+    }
+
+    .review-form-group input,
+    .review-form-group select,
+    .review-form-group textarea {
+        font-size: 11px;
+    }
+
+    .review-submit-btn {
+        width: 100%;
+    }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .review-card.is-new-review {
+        animation: none;
+    }
+
+}
+
+
+
+
+/* =====================================
+   CUSTOMER REVIEWS SECTION
+===================================== */
+
+.reviews-section {
+    position: relative;
+    overflow: hidden;
+
+    padding: 105px 0 75px;
+
+    background: #F3F0E5;
+}
+
+.reviews-container {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+/* SECTION HEADER */
+
+.reviews-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 35px;
+
+    padding: 0 7%;
+    margin-bottom: 45px;
+}
+
+.reviews-heading {
+    max-width: 600px;
+}
+
+.reviews-eyebrow {
+    display: block;
+    margin-bottom: 17px;
+
+    color: #697A66;
+    font-family: "Manrope", sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+}
+
+.reviews-title {
+    margin: 0;
+
+    color: #203729;
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(48px, 5vw, 68px);
+    font-weight: 500;
+    line-height: 0.98;
+    letter-spacing: -0.035em;
+}
+
+.reviews-title em {
+    color: #89927E;
+    font-weight: 400;
+}
+
+.reviews-description {
+    max-width: 430px;
+    margin-top: 18px;
+
+    color: #62675D;
+    font-family: "Manrope", sans-serif;
+    font-size: 12px;
+    line-height: 1.9;
+}
+
+/* SLIDER CONTROLS */
+
+.reviews-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+.review-control {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 48px;
+    height: 48px;
+
+    border: 1px solid rgba(32, 55, 41, 0.25);
+    background: transparent;
+
+    color: #203729;
+    font-family: "Manrope", sans-serif;
+    font-size: 21px;
+
+    cursor: pointer;
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.review-control:hover {
+    background: #203729;
+    border-color: #203729;
+    color: #F8F5EA;
+}
+
+
+/* =====================================
+   REVIEWS — MANUAL SLIDER
+===================================== */
+
+.reviews-slider {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    padding: 5px 0 15px;
+
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+}
+
+.reviews-slider::-webkit-scrollbar {
+    display: none;
+}
+
+.reviews-track {
+    display: flex;
+    align-items: stretch;
+    gap: 22px;
+
+    width: max-content;
+    padding: 0 7%;
+}
+
+.review-card {
+    flex: 0 0 340px;
+    scroll-snap-align: start;
+}
+
+/* Disabled navigation button */
+
+.review-control:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+/* TABLET */
+
+@media (max-width: 1000px) {
+
+    .reviews-track {
+        padding: 0 5%;
+    }
+
+    .review-card {
+        flex-basis: 310px;
+    }
+
+}
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+
+    .reviews-track {
+        gap: 14px;
+        padding: 0 23px;
+    }
+
+    .review-card {
+        flex-basis: 285px;
+    }
+
+}
+
+@media (max-width: 380px) {
+
+    .review-card {
+        flex-basis: 265px;
+    }
+
+}
+
+
+/* REVIEW CARD */
+
+.review-card {
+    display: flex;
+    flex-direction: column;
+
+    flex: 0 0 340px;
+    min-height: 270px;
+
+    padding: 30px;
+
+    background: #F8F5EA;
+    border: 1px solid rgba(32, 55, 41, 0.10);
+
+    transition:
+        border-color 0.3s ease,
+        box-shadow 0.3s ease,
+        transform 0.3s ease;
+}
+
+.review-card:hover {
+    border-color: rgba(32, 55, 41, 0.3);
+    box-shadow: 0 15px 35px rgba(32, 55, 41, 0.07);
+    transform: translateY(-4px);
+}
+
+/* CARD TOP */
+
+.review-card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.review-stars {
+    color: #B58A4C;
+    font-size: 14px;
+    letter-spacing: 4px;
+}
+
+.review-quote {
+    color: #D9CBB0;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 65px;
+    line-height: 0.7;
+}
+
+/* REVIEW TEXT */
+
+.review-text {
+    margin-top: 22px;
+    margin-bottom: 25px;
+
+    color: #52594F;
+    font-family: "Manrope", sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 2;
+}
+
+/* REVIEW AUTHOR */
+
+.review-author {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    margin-top: auto;
+    padding-top: 17px;
+
+    border-top: 1px solid rgba(32, 55, 41, 0.12);
+}
+
+.review-avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 38px;
+    height: 38px;
+    flex-shrink: 0;
+
+    background: #203729;
+    color: #F8F5EA;
+
+    font-family: "Cormorant Garamond", serif;
+    font-size: 20px;
+}
+
+.review-author-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.review-author-info strong {
+    color: #203729;
+    font-family: "Manrope", sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.review-author-info span {
+    color: #89927E;
+    font-family: "Manrope", sans-serif;
+    font-size: 9px;
+    letter-spacing: 0.04em;
+}
+
+/* SECTION FOOTER */
+
+.reviews-footer {
+    display: flex;
+    justify-content: center;
+
+    margin-top: 35px;
+    padding: 20px 20px 0;
+
+    border-top: 1px solid rgba(32, 55, 41, 0.13);
+
+    color: #697A66;
+    font-family: "Manrope", sans-serif;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+}
+
+
+/* =====================================
+   TABLET RESPONSIVENESS
+===================================== */
+
+@media (max-width: 1000px) {
+
+    .reviews-section {
+        padding: 85px 0 60px;
+    }
+
+    .reviews-header {
+        padding: 0 5%;
+        margin-bottom: 35px;
+    }
+
+    .reviews-track {
+        padding: 0 5%;
+    }
+
+    .review-card {
+        flex-basis: 310px;
+    }
+
+}
+
+
+/* =====================================
+   MOBILE RESPONSIVENESS
+===================================== */
+
+@media (max-width: 700px) {
+
+    .reviews-section {
+        padding: 65px 0 45px;
+    }
+
+    .reviews-header {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 22px;
+
+        padding: 0 23px;
+        margin-bottom: 25px;
+    }
+
+    .reviews-title {
+        font-size: 49px;
+    }
+
+    .reviews-description {
+        font-size: 11px;
+    }
+
+    .review-control {
+        width: 42px;
+        height: 42px;
+    }
+
+    .reviews-track {
+        gap: 14px;
+        padding: 0 23px;
+    }
+
+    .review-card {
+        flex-basis: 285px;
+        min-height: 255px;
+        padding: 24px;
+    }
+
+    .review-text {
+        font-size: 11px;
+    }
+
+    .reviews-footer {
+        margin-top: 25px;
+        font-size: 8px;
+        letter-spacing: 0.14em;
+    }
+
+}
+
+
+/* =====================================
+   SMALL MOBILE
+===================================== */
+
+@media (max-width: 380px) {
+
+    .reviews-title {
+        font-size: 44px;
+    }
+
+    .review-card {
+        flex-basis: 265px;
+        padding: 21px;
+    }
+
+}
+
+
+/* =====================================
+   REDUCED MOTION
+===================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .review-card,
+    .review-control {
+        transition: none;
+    }
+
+}
+
+.reviews-slider {
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: none;
+    scroll-behavior: auto;
+}
+
+.reviews-slider::-webkit-scrollbar {
+    display: none;
+}
+
+.reviews-track {
+    width: max-content;
+}
+
+/* =====================================
+   LOCATION & CONTACT
 ===================================== */
 
 .location-section {
-    position: relative;
-    padding: 75px 0 0;
+    padding: 105px 0 85px;
     background: #F3F0E5;
-    overflow: hidden;
 }
 
 .location-container {
@@ -2311,52 +2990,48 @@ button {
     padding: 0 7%;
 }
 
-/* HEADER */
+/* SECTION HEADER */
 
 .location-header {
     max-width: 720px;
-    margin-bottom: 40px;
+    margin-bottom: 55px;
 }
 
 .location-eyebrow {
     display: flex;
     align-items: center;
-    gap: 13px;
-    margin-bottom: 18px;
-
-    color: #697A66;
+    gap: 12px;
+    margin-bottom: 20px;
+    color: #526451;
     font-size: 10px;
-    font-weight: 600;
-    letter-spacing: 0.2em;
+    font-weight: 700;
+    letter-spacing: 2.5px;
 }
 
 .location-eyebrow span {
-    width: 35px;
+    width: 27px;
     height: 1px;
-    background: #697A66;
+    background: #526451;
 }
 
 .location-title {
+    margin: 0 0 18px;
     color: #203729;
     font-family: "Cormorant Garamond", serif;
-    font-size: clamp(50px, 5.8vw, 72px);
+    font-size: clamp(44px, 5vw, 68px);
     font-weight: 500;
-    line-height: 0.96;
-    letter-spacing: -0.035em;
+    line-height: 0.98;
 }
 
 .location-title em {
     display: block;
-    color: #89927E;
     font-weight: 400;
 }
 
 .location-description {
-    max-width: 430px;
-    margin-top: 18px;
-
-    color: #73766C;
-    font-size: 11px;
+    max-width: 480px;
+    color: #77796F;
+    font-size: 13px;
     line-height: 1.9;
 }
 
@@ -2365,7 +3040,7 @@ button {
 .location-layout {
     display: grid;
     grid-template-columns: 0.85fr 1.15fr;
-    gap: 20px;
+    gap: 35px;
     align-items: stretch;
 }
 
@@ -2374,104 +3049,102 @@ button {
 .location-information {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 18px;
 }
 
 .location-card {
     position: relative;
-    flex: 1;
-    padding: 30px;
+    padding: 38px;
     background: #203729;
     color: #F8F5EA;
+    min-height: 315px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
 .location-card-number {
-    color: #B7C4AE;
+    color: #B8C4B0;
     font-size: 9px;
-    font-weight: 600;
-    letter-spacing: 0.16em;
+    letter-spacing: 2px;
 }
 
 .location-icon {
-    margin: 25px 0 14px;
+    margin-top: 28px;
     color: #D9CBB0;
-    font-size: 35px;
-    line-height: 1;
+    font-size: 32px;
 }
 
 .location-card h3 {
-    margin-bottom: 14px;
-    color: #F8F5EA;
+    margin: 12px 0;
     font-family: "Cormorant Garamond", serif;
     font-size: 39px;
     font-weight: 500;
 }
 
 .location-address {
-    color: #D6DCCF;
-    font-size: 11px;
+    color: #D5D9D0;
+    font-size: 12px;
     line-height: 1.9;
 }
 
 .location-directions-link {
     display: inline-flex;
     align-items: center;
-    gap: 18px;
-    margin-top: 24px;
-    padding-bottom: 7px;
-
-    border-bottom: 1px solid rgba(248, 245, 234, 0.4);
-
+    gap: 22px;
+    margin-top: 23px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #AAB5A5;
     color: #F8F5EA;
     font-size: 9px;
-    font-weight: 600;
-    letter-spacing: 0.15em;
+    font-weight: 700;
+    letter-spacing: 1.8px;
+    text-decoration: none;
+    transition: gap 0.25s ease;
+}
+
+.location-directions-link:hover {
+    gap: 32px;
 }
 
 .location-directions-link span {
-    font-size: 16px;
-    transition: transform 0.3s ease;
+    font-size: 15px;
 }
 
-.location-directions-link:hover span {
-    transform: translate(3px, -3px);
-}
-
-/* SMALL DETAIL CARDS */
+/* DETAIL CARDS */
 
 .location-details-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 12px;
+    gap: 18px;
 }
 
 .location-detail-card {
-    min-height: 155px;
-    padding: 20px 17px;
+    min-height: 180px;
+    padding: 25px 22px;
     background: #E8E5D9;
+    border: 1px solid rgba(32, 55, 41, 0.08);
 }
 
 .location-detail-label {
-    color: #697A66;
-    font-size: 8px;
-    font-weight: 600;
-    letter-spacing: 0.13em;
+    color: #78816F;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
 }
 
 .location-detail-card h4 {
-    margin-top: 19px;
-    margin-bottom: 7px;
-
+    margin: 24px 0 12px;
     color: #203729;
     font-family: "Cormorant Garamond", serif;
-    font-size: 23px;
+    font-size: 25px;
     font-weight: 500;
 }
 
 .location-detail-card p {
-    color: #77796E;
-    font-size: 10px;
-    line-height: 1.8;
+    color: #77796F;
+    font-size: 11px;
+    line-height: 1.9;
 }
 
 .location-detail-card strong {
@@ -2479,98 +3152,132 @@ button {
     font-weight: 600;
 }
 
-/* MAP AREA */
+/* RIGHT EXPERIENCE CARD */
 
-.location-map-wrapper {
+.location-experience {
     display: flex;
     flex-direction: column;
     min-width: 0;
-    padding: 22px;
     background: #E8E5D9;
 }
 
-.location-map-heading {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 15px;
-    margin-bottom: 16px;
-}
-
-.location-map-label {
-    color: #697A66;
-    font-size: 9px;
-    font-weight: 600;
-    letter-spacing: 0.15em;
-}
-
-.location-map-heading h3 {
-    margin-top: 6px;
-    color: #203729;
-    font-family: "Cormorant Garamond", serif;
-    font-size: 28px;
-    font-weight: 500;
-}
-
-.location-map-pin {
-    color: #89927E;
-    font-size: 27px;
-}
-
-.location-map {
-    flex: 1;
+.location-experience-image {
+    position: relative;
     min-height: 350px;
+    flex: 1;
     overflow: hidden;
-    background: #D9CBB0;
+    background: #203729;
 }
 
-.location-map iframe {
-    display: block;
+.location-experience-image img {
+    position: absolute;
+    inset: 0;
     width: 100%;
     height: 100%;
-    min-height: 350px;
-    filter: grayscale(0.75) contrast(0.95);
-    transition: filter 0.4s ease;
+    object-fit: cover;
 }
 
-.location-map:hover iframe {
-    filter: grayscale(0) contrast(1);
+.location-image-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0.05) 20%,
+        rgba(0, 0, 0, 0.72) 100%
+    );
 }
 
-/* MAP FOOTER */
-
-.location-map-footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 15px;
-    padding-top: 16px;
+.location-image-content {
+    position: absolute;
+    left: 38px;
+    right: 30px;
+    bottom: 32px;
+    color: #FFFFFF;
 }
 
-.location-map-footer > span {
-    display: flex;
-    align-items: center;
-    gap: 9px;
-
-    color: #697A66;
-    font-size: 8px;
-    font-weight: 600;
-    letter-spacing: 0.1em;
+.location-image-content span {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 2px;
 }
 
-.location-status-dot {
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-    background: #89927E;
+.location-image-content h3 {
+    margin-top: 13px;
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(34px, 4vw, 49px);
+    font-weight: 500;
+    color: #FFFFFF;
+    line-height: 1;
 }
 
-.location-map-footer a {
+.location-image-content h3 em {
+    display: block;
+    font-weight: 400;
+}
+
+.location-image-number {
+    position: absolute;
+    top: 25px;
+    left: 28px;
+    color: #FFFFFF;
+    font-size: 9px;
+    letter-spacing: 1.8px;
+}
+
+/* EXPERIENCE DETAILS */
+
+.location-experience-bottom {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+    padding: 28px 30px;
+}
+
+.location-experience-intro span {
+    color: #78816F;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+.location-experience-intro p {
+    max-width: 230px;
+    margin-top: 12px;
     color: #203729;
-    font-size: 8px;
-    font-weight: 600;
-    letter-spacing: 0.1em;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 23px;
+    line-height: 1.2;
+}
+
+.location-highlights {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 12px;
+}
+
+.location-highlight {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(32, 55, 41, 0.12);
+}
+
+.location-highlight:last-child {
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.location-highlight span {
+    color: #89927E;
+    font-size: 9px;
+    font-weight: 700;
+}
+
+.location-highlight p {
+    color: #526451;
+    font-size: 10px;
 }
 
 /* BOTTOM MESSAGE */
@@ -2580,33 +3287,29 @@ button {
     align-items: center;
     justify-content: space-between;
     gap: 20px;
-
-    margin-top: 45px;
-    padding: 23px 0;
-
-    border-top: 1px solid rgba(32, 55, 41, 0.17);
+    margin-top: 65px;
+    padding-top: 25px;
+    border-top: 1px solid rgba(32, 55, 41, 0.18);
 }
 
 .location-bottom > span {
-    color: #697A66;
+    color: #78816F;
     font-size: 9px;
-    font-weight: 600;
-    letter-spacing: 0.15em;
+    font-weight: 700;
+    letter-spacing: 2px;
 }
 
 .location-bottom p {
     color: #203729;
     font-family: "Cormorant Garamond", serif;
-    font-size: 25px;
+    font-size: 28px;
 }
 
 .location-bottom em {
-    color: #89927E;
+    font-weight: 600;
 }
 
-/* =====================================
-   LOCATION — TABLET
-===================================== */
+/* TABLET */
 
 @media (max-width: 1000px) {
 
@@ -2616,101 +3319,142 @@ button {
 
     .location-layout {
         grid-template-columns: 1fr;
-        gap: 18px;
+    }
+
+    .location-information {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: stretch;
     }
 
     .location-card {
-        min-height: 320px;
-    }
-
-    .location-map {
-        min-height: 330px;
-    }
-
-    .location-map iframe {
-        min-height: 330px;
-    }
-
-}
-
-/* =====================================
-   LOCATION — MOBILE
-===================================== */
-
-@media (max-width: 650px) {
-
-    .location-section {
-        padding-top: 45px;
-    }
-
-    .location-container {
-        padding: 0 20px;
-    }
-
-    .location-header {
-        margin-bottom: 30px;
-    }
-
-    .location-title {
-        font-size: 52px;
-    }
-
-    .location-description {
-        font-size: 11px;
-    }
-
-    .location-card {
-        min-height: 310px;
-        padding: 24px;
-    }
-
-    .location-card h3 {
-        font-size: 35px;
+        min-height: 100%;
     }
 
     .location-details-grid {
-        gap: 10px;
+        grid-template-columns: 1fr;
     }
 
     .location-detail-card {
-        min-height: 150px;
-        padding: 17px 13px;
+        min-height: 0;
+        flex: 1;
+    }
+
+    .location-experience-image {
+        min-height: 380px;
+    }
+}
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+
+    .location-section {
+        padding: 70px 0 55px;
+    }
+
+    .location-container {
+        padding: 0 23px;
+    }
+
+    .location-header {
+        margin-bottom: 35px;
+    }
+
+    .location-title {
+        font-size: 48px;
+    }
+
+    .location-description {
+        font-size: 12px;
+    }
+
+    .location-information {
+        display: flex;
+    }
+
+    .location-card {
+        min-height: 300px;
+        padding: 30px;
+    }
+
+    .location-details-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+    }
+
+    .location-detail-card {
+        padding: 20px 15px;
     }
 
     .location-detail-card h4 {
-        font-size: 21px;
+        font-size: 22px;
     }
 
-    .location-map-wrapper {
-        padding: 15px;
+    .location-experience-image {
+        min-height: 310px;
     }
 
-    .location-map-heading h3 {
-        font-size: 25px;
+    .location-image-content {
+        left: 25px;
+        bottom: 30px;
     }
 
-    .location-map {
-        min-height: 270px;
+    .location-image-content h3 {
+        font-size: 38px;
     }
 
-    .location-map iframe {
-        min-height: 270px;
+    .location-experience-bottom {
+        grid-template-columns: 1fr;
+        gap: 25px;
+        padding: 25px;
     }
 
-    .location-map-footer {
-        align-items: flex-start;
-        flex-direction: column;
+    .location-experience-intro p {
+        max-width: 300px;
     }
 
     .location-bottom {
-        align-items: flex-start;
         flex-direction: column;
+        align-items: flex-start;
         gap: 12px;
-        margin-top: 35px;
-        padding: 20px 0;
+        margin-top: 45px;
     }
 
+    .location-bottom > span {
+        font-size: 8px;
+    }
 }
+
+/* SMALL MOBILE */
+
+@media (max-width: 380px) {
+
+    .location-container {
+        padding: 0 18px;
+    }
+
+    .location-title {
+        font-size: 42px;
+    }
+
+    .location-details-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .location-detail-card {
+        min-height: 145px;
+    }
+
+    .location-experience-image {
+        min-height: 270px;
+    }
+
+    .location-image-content h3 {
+        font-size: 34px;
+    }
+}
+
 
 /* =====================================
    BEAN YARD CAFÉ — PREMIUM FOOTER

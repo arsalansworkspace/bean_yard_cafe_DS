@@ -100,8 +100,7 @@
            aria-label="BEAN YARD CAFÉ home">
 
             <img loading="eager" decoding="async"
-                src="assets/logo/bean-yard-logo-transparent.png"
-                alt="BEAN YARD CAFÉ"
+                src="assets/logo/vector file.png"
                 width="70"
                 height="70"
             >
@@ -925,7 +924,163 @@
 </section>
 
 
+<!-- =====================================
+     CUSTOMER REVIEW FORM
+===================================== -->
 
+<div class="review-form-wrapper">
+
+    <div class="review-form-heading">
+        <span class="reviews-eyebrow">SHARE YOUR EXPERIENCE</span>
+
+        <h3 class="review-form-title">
+            Been Here?
+            <em>Tell Us About It.</em>
+        </h3>
+
+        <p>
+            Enjoyed your visit? We'd love to hear
+            what made your experience special.
+        </p>
+    </div>
+
+    <form id="customer-review-form" class="customer-review-form">
+
+        <!-- CUSTOMER NAME -->
+        <div class="review-form-group">
+            <label for="review-name">Your Name</label>
+
+            <input
+                type="text"
+                id="review-name"
+                name="name"
+                placeholder="Enter your name"
+                maxlength="40"
+                required
+            >
+        </div>
+
+        <!-- STAR RATING -->
+        <div class="review-form-group">
+            <label for="review-rating">Your Rating</label>
+
+            <select id="review-rating" name="rating" required>
+                <option value="5" selected>★★★★★ — Excellent</option>
+                <option value="4">★★★★☆ — Very Good</option>
+                <option value="3">★★★☆☆ — Good</option>
+                <option value="2">★★☆☆☆ — Fair</option>
+                <option value="1">★☆☆☆☆ — Poor</option>
+            </select>
+        </div>
+
+        <!-- REVIEW MESSAGE -->
+        <div class="review-form-group">
+            <label for="review-message">Your Experience</label>
+
+            <textarea
+                id="review-message"
+                name="message"
+                rows="4"
+                maxlength="500"
+                placeholder="Tell us about your coffee, food or experience..."
+                required
+            ></textarea>
+
+            <span class="review-character-count">
+                Maximum 500 characters
+            </span>
+        </div>
+
+        <!-- SUBMIT -->
+        <button type="submit" class="review-submit-btn">
+            SUBMIT YOUR REVIEW
+            <span aria-hidden="true">↗</span>
+        </button>
+
+        <p
+            id="review-form-message"
+            class="review-form-message"
+            role="status"
+            aria-live="polite"
+        ></p>
+
+    </form>
+
+</div>
+
+
+<!-- =====================================
+     CUSTOMER REVIEWS SECTION
+===================================== -->
+
+<section class="reviews-section" id="reviews">
+
+    <div class="reviews-container">
+
+        <!-- SECTION HEADER -->
+        <div class="reviews-header">
+
+            <div class="reviews-heading">
+                <span class="reviews-eyebrow">
+                    A FEW KIND WORDS
+                </span>
+
+                <h2 class="reviews-title">
+                    Moments Worth
+                    <em>Sharing.</em>
+                </h2>
+
+                <p class="reviews-description">
+                    Good coffee brings people together.
+                    Here's what our café experience means
+                    to our customers.
+                </p>
+            </div>
+
+            <!-- SLIDER CONTROLS -->
+            <div class="reviews-controls">
+
+                <button
+                    class="review-control review-prev"
+                    type="button"
+                    aria-label="Previous reviews"
+                >
+                    <span aria-hidden="true">←</span>
+                </button>
+
+                <button
+                    class="review-control review-next"
+                    type="button"
+                    aria-label="Next reviews"
+                >
+                    <span aria-hidden="true">→</span>
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- REVIEWS SLIDER -->
+        <div class="reviews-slider" id="reviews-slider">
+
+            <div class="reviews-track" id="reviews-track">
+    <!-- Reviews will be loaded dynamically from MySQL -->
+</div>
+
+        </div>
+
+        <div class="reviews-footer">
+            <span>MADE WITH CARE · SHARED WITH LOVE</span>
+        </div>
+
+    </div>
+
+</section>
+
+
+
+```html
 <!-- =====================================
      BEAN YARD CAFÉ — LOCATION & CONTACT
 ===================================== -->
@@ -1029,52 +1184,67 @@
             </div>
 
 
-            <!-- RIGHT: MAP -->
-            <div class="location-map-wrapper">
+            <!-- RIGHT: CAFÉ EXPERIENCE CARD -->
+            <div class="location-experience">
 
-                <div class="location-map-heading">
-                    <div>
-                        <span class="location-map-label">
-                            OUR LOCATION
-                        </span>
+                <div class="location-experience-image">
 
-                        <h3>Find us in Maidstone.</h3>
+                    <img
+                        src="assets/images/cappuccino.webp"
+                        alt="Freshly prepared coffee at BEAN YARD CAFÉ"
+                        loading="lazy"
+                    >
+
+                    <div class="location-image-overlay"></div>
+
+                    <div class="location-image-content">
+
+                        <span>YOUR LITTLE ESCAPE</span>
+
+                        <h3>
+                            A good cup.
+                            <em>A better moment.</em>
+                        </h3>
+
                     </div>
 
-                    <span class="location-map-pin">✳</span>
-                </div>
-
-
-                <div class="location-map">
-
-                    <iframe
-                        src="https://www.google.com/maps?q=41%20Union%20Street%2C%20Maidstone%2C%20ME14%201ED&output=embed"
-                        width="100%"
-                        height="100%"
-                        style="border:0;"
-                        allowfullscreen=""
-                        loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade"
-                        title="Map showing the BEAN YARD CAFÉ address at 41 Union Street, Maidstone"
-                    ></iframe>
+                    <div class="location-image-number">
+                        02 / THE EXPERIENCE
+                    </div>
 
                 </div>
 
 
-                <div class="location-map-footer">
+                <div class="location-experience-bottom">
 
-                    <span>
-                        <span class="location-status-dot"></span>
-                        MAIDSTONE, UNITED KINGDOM
-                    </span>
+                    <div class="location-experience-intro">
+                        <span>MORE THAN JUST COFFEE</span>
 
-                    <a
-                        href="https://www.google.com/maps/search/?api=1&query=41+Union+Street%2C+Maidstone%2C+ME14+1ED"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        OPEN IN GOOGLE MAPS ↗
-                    </a>
+                        <p>
+                            A welcoming place to slow down,
+                            catch up and enjoy the little things.
+                        </p>
+                    </div>
+
+
+                    <div class="location-highlights">
+
+                        <div class="location-highlight">
+                            <span>01</span>
+                            <p>Freshly brewed coffee</p>
+                        </div>
+
+                        <div class="location-highlight">
+                            <span>02</span>
+                            <p>A relaxed atmosphere</p>
+                        </div>
+
+                        <div class="location-highlight">
+                            <span>03</span>
+                            <p>Made with care</p>
+                        </div>
+
+                    </div>
 
                 </div>
 
@@ -1097,6 +1267,7 @@
     </div>
 
 </section>
+```
 
 
 <!-- =====================================
